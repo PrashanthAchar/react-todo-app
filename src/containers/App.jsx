@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import TodoInput from '../components/TodoInput.jsx';
+import Todos from '../components/Todos.jsx';
 
 class App extends Component{
 
@@ -40,18 +42,15 @@ class App extends Component{
 
     render(){
         console.log(this.state.todos);
-        let list = this.state.todos.map((todo) =>{
-             return <li key={todo.id}>{todo.todo} </li>
-        });        
         return (
             <div>
                 <p>Welcome to React Application</p>
-                <input type='text' onChange={this.onTextChange} value={this.state.message}/>
-                <button onClick={this.addTodo}>Add Todo</button> <br/>
-
-                <ul>
-                 {list}   
-                </ul>
+                <TodoInput
+                    message={this.state.message}
+                    onTextChange = {this.onTextChange}
+                    addTodo = {this.addTodo}
+                /><br/>
+                <Todos {...this.state}/>
             </div>
         )
     }
