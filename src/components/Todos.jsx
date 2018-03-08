@@ -11,8 +11,8 @@ export default class Todos extends Component{
         <div>
             <ul>
             {
-                this.props.todos.map(todo => {
-                    return <Todo item={todo} />
+                this.props.todoData.todos.map(todo => {
+                    return <Todo key={todo.id} item={todo} message={this.props.todoData.message}/>
                 })
              }
              </ul>
